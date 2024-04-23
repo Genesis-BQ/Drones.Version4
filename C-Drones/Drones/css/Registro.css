@@ -1,0 +1,146 @@
+﻿/* Aquí inicia los estilos del formulario */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Añadido para centrar el texto en el body */
+    background: url(../Imagenes/incio.jpg) center center fixed; /* Añadido para establecer la imagen de fondo */
+    background-size: cover; /* Añadido para cubrir todo el fondo */
+}
+
+header {
+    background-color: #000000;
+    padding: 20px 0;
+}
+
+.caja {
+    width: 90%; /* Ancho del contenedor principal */
+    position: relative;
+    margin: 0 auto;
+}
+
+nav {
+    position: absolute; /* Cambiado a posición absoluta */
+    top: 20px; /* Ajuste de la posición desde arriba */
+    right: 20px; /* Ajuste de la posición desde la derecha */
+}
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin: 0 15px 0 0; /* Ajuste del margen entre elementos */
+    }
+
+    nav a {
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+        nav a:hover {
+            color: #c78c19;
+            text-decoration: underline;
+        }
+
+
+.formulario {
+    width: 90%; /* Ancho del formulario */
+    position: relative;
+    margin: 50px auto; /* Ajuste del margen superior e inferior */
+    background-color: rgba(169, 169, 169, 0.5); /* Transparent gray background */
+    padding: 20px; /* Ajuste del padding */
+    border-radius: 15px; /* Ajuste del radio del borde */
+}
+
+form {
+    margin: 20px 0;
+    text-align: center;
+}
+
+    form label,
+    form legend {
+        display: block;
+        font-size: 20px;
+        margin: 0 0 10px;
+        font-weight: bold;
+        color: white;
+    }
+
+.input-padrom {
+    display: block;
+    margin: 0 auto 20px; /* Centro horizontalmente con márgenes automáticos */
+    padding: 10px 25px;
+    width: 100%; /* Ancho completo */
+    text-align: center;
+}
+
+.checkbox {
+    margin: 20px 0;
+}
+
+.titulo-login {
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.enviar {
+    width: 100%; /* Ancho completo */
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #000000;
+    border: none;
+    border-radius: 5px;
+    transition: 5s all;
+    cursor: pointer;
+}
+
+    .enviar:hover {
+        background: #c78c19;
+        transform: scale(1.2);
+    }
+
+/* Media query para ajustes responsivos */
+@media (max-width: 768px) {
+    .caja {
+        width: 100%; /* Ancho completo */
+    }
+
+    nav {
+        display: block; /* Mostrar el menú de navegación en dispositivos pequeños */
+        position: relative; /* Ajuste de la posición */
+        top: 0; /* Resetear la posición */
+        right: 0; /* Resetear la posición */
+    }
+
+    .formulario {
+        width: 90%; /* Ancho del formulario */
+        margin: 20px auto; /* Ajuste del margen */
+    }
+
+    .titulo-login {
+        font-size: 24px; /* Tamaño de fuente del título */
+    }
+
+    .input-padrom {
+        width: 100%; /* Ancho completo */
+        margin: 0 auto 15px; /* Ajuste del margen inferior */
+    }
+
+    .enviar {
+        width: 100%; /* Ancho completo */
+        padding: 10px 0; /* Ajuste del padding */
+        font-size: 16px; /* Tamaño de fuente del botón */
+    }
+}

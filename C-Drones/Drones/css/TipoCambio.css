@@ -1,0 +1,97 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #194c72;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size:20px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+.contenedor-img {
+    float: left;
+    margin-right: 1000px; /* Esto puede causar problemas en diseños responsivos */
+}
+
+.icono {
+    background-image: url('https://cdn.pixabay.com/photo/2021/01/25/12/21/money-5948190_960_720.png');
+    background-size: 50px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+}
+
+.contenedor-compra,
+.contenedor-venta {
+    width: 100%; /* Ancho completo en dispositivos pequeños */
+    text-align: center;
+    margin-top: 20px; /* Espacio superior reducido */
+    margin-bottom: 20px; /* Espacio inferior reducido */
+    padding: 20px; /* Reducción del padding */
+    font-size: 20px; /* Reducción del tamaño de fuente */
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los contenedores se envuelvan en dispositivos pequeños */
+    justify-content: center;
+}
+
+footer {
+    background-color: #194c72;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+/* Media queries para ajustes responsivos */
+@media screen and (min-width: 360px) and (max-width: 1200px) {
+    .contenedor-compra,
+    .contenedor-venta {
+        width: calc(50% - 20px); /* 50% de ancho con margen entre elementos */
+        margin: 10px; /* Espacio entre elementos */
+        font-size: 25px; /* Aumento del tamaño de fuente */
+    }
+    footer{
+        width: 100%;
+        height: 100%;
+    }
+    h1{
+        font-size:50px;
+    }
+}

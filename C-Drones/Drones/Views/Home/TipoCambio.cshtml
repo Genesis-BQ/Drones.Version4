@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Tipo de Cambio";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tipo de Cambio</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/TipoCambio.css">
+    <link rel="manifest" href="~/manifest.json" />
+    <link rel="icon" type="image/png" href="/Imagenes/favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Consulta de Tipo de Cambio </h1>
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">Login</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contenedor-img">
+        <img src="https://www.bccr.fi.cr/_catalogs/masterpage/BCCR_AIP_Master/assets/img/bccr.jpg">
+    </div>
+    <div class="contenedor">
+        <div class="contenedor-compra">
+            <div class="icono"></div>
+            <p>Compra: @ViewBag.Compra</p>
+            @if (ViewBag.Error != null)
+            {
+                <p>Error: @ViewBag.Error</p>
+            }
+        </div>
+        <div class="contenedor-venta">
+            <div class="icono"></div>
+            <p>Venta: @ViewBag.Venta</p>
+            @if (ViewBag.Error != null)
+            {
+                <p>Error: @ViewBag.Error</p>
+            }
+        </div>
+    </div>
+    <footer>
+        <p>© Banco Central de Costa Rica 2024</p>
+    </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

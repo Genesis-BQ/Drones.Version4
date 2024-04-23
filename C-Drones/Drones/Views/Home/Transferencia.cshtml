@@ -1,0 +1,99 @@
+﻿@model Drones.Models.Transaccion
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" />
+    <title>Transferencia Bancaria</title>
+    <link rel="stylesheet" href="~/css/Tranferencia.css">
+    <link rel="manifest" href="~/manifest.json" />
+    <link rel="icon" type="image/png" href="/Imagenes/favicon.png">
+</head>
+<body>
+    <img src="~/Imagenes/Banco.png" alt="Esquina de la pantalla" class="corner-image">
+    <div class="transfer-container">
+        <!-- Información del Usuario -->
+        <h2>Información del Usuario</h2>
+        @if (ViewBag.IdentificacionUsuario != null && ViewBag.TotalAPagar != null)
+        {
+            <div>
+                <p>Identificación del Usuario: @ViewBag.IdentificacionUsuario</p>
+                <p>Total a Pagar: @ViewBag.TotalAPagar</p>
+            </div>
+        }
+        <!-- Transferencia Bancaria -->
+        <h2>Transferencia Bancaria</h2>
+        @using (Html.BeginForm("Transferencia", "Home", FormMethod.Post, new { id = "form-transferencia", @class = "bank-transfer-form" }))
+        {
+            <div class="form-group">
+                <label for="numero-cuenta">Número de Cuenta</label>
+                <input type="text" id="numero-cuenta" name="NumeroCuenta" required class="form-control">
+                @Html.ValidationMessageFor(model => model.NumeroCuenta)
+            </div>
+            <div class="form-group">
+                <label for="monto-transferencia">Monto de la Transferencia</label>
+                <input type="number" id="monto-transferencia" name="MontoTransferencia" required class="form-control">
+                @Html.ValidationMessageFor(model => model.MontoTransferencia)
+            </div>
+            <!-- Nuevo código para el botón con el SVG -->
+            <div class="container">
+                <div class="left-side">
+                    <div class="card">
+                        <div class="card-line"></div>
+                        <div class="buttons"></div>
+                    </div>
+                    <div class="post">
+                        <div class="post-line"></div>
+                        <div class="screen">
+                            <button type="submit" class="dollar" onclick="processPayment()">$</button>
+                        </div>
+                        <div class="numbers"></div>
+                        <div class="numbers-line2"></div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="new">Realizar Tranferencia</div>
+                    <svg viewBox="0 0 451.846 451.847" height="512" width="512" xmlns="http://www.w3.org/2000/svg" class="arrow">
+                        <path fill="#cfcfcf" data-old_color="#000000" class="active-path" data-original="#000000" d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"></path>
+                    </svg>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Mostrar mensaje al usuario si está presente en el modelo -->
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <div id="mensaje-usuario">@Model.Mensaje</div>
+    }
+
+    <!-- Mostrar mensaje de error si está presente en ViewBag -->
+    @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+    {
+        <div id="mensaje-error">@ViewBag.Mensaje</div>
+    }
+
+    <script>
+        function processPayment() {
+            alert("¡Pago realizado con éxito!");
+            // Redirecciona al Home
+            window.location.href = '@Url.Action("PagarYBorrar", "Home")';
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

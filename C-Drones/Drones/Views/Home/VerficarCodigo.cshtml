@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/Token.css">
+    <link rel="manifest" href="~/manifest.json" />
+    <link rel="icon" type="image/png" href="/Imagenes/favicon.png">
+</head>
+<body>
+    <div class="container">
+
+        <h3>Validar Código</h3>
+
+        <form action="/Home/VerificarCodigo" method="post">
+            @Html.AntiForgeryToken()
+
+            <div>
+                <label for="Codigo">Código de recuperación:</label>
+                <input type="text" id="Codigo" name="CodigoIngresado" required>
+            </div>
+            <div class="token-button">
+                <button id="tokenButton" type="submit" name="submit" value="Validar Código">Validar Código</button>
+            </div>
+            <div class="back-link">
+                <a href="@Url.Action("Recuperar", "Home")">Atrás</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Enviar Correo</title>
+    <link rel="stylesheet" type="text/css" href="~/css/enviarCorreo.css">
+    <link rel="manifest" href="~/manifest.json" />
+    <link rel="icon" type="image/png" href="/Imagenes/favicon.png">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Recuperar Contraseña</h2>
+        <form action="ObtenerPreguntas" method="post">
+            <div>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required />
+            </div>
+            <div>
+                <input type="submit" value="Enviar" />
+            </div>
+        </form>
+        <div>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <script>
+    var errorMessage = "";
+        document.getElementById('error-message').innerText = errorMessage;</script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

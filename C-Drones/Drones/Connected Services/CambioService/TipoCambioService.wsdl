@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCompra">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCompraResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVenta">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetVentaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompra" />
+  </wsdl:message>
+  <wsdl:message name="GetCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVenta" />
+  </wsdl:message>
+  <wsdl:message name="GetVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVentaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TipoCambioServiceSoap">
+    <wsdl:operation name="GetCompra">
+      <wsdl:input message="tns:GetCompraSoapIn" />
+      <wsdl:output message="tns:GetCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVenta">
+      <wsdl:input message="tns:GetVentaSoapIn" />
+      <wsdl:output message="tns:GetVentaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TipoCambioServiceSoap" type="tns:TipoCambioServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCompra">
+      <soap:operation soapAction="http://tempuri.org/GetCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenta">
+      <soap:operation soapAction="http://tempuri.org/GetVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TipoCambioServiceSoap12" type="tns:TipoCambioServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCompra">
+      <soap12:operation soapAction="http://tempuri.org/GetCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVenta">
+      <soap12:operation soapAction="http://tempuri.org/GetVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TipoCambioService">
+    <wsdl:port name="TipoCambioServiceSoap" binding="tns:TipoCambioServiceSoap">
+      <soap:address location="http://localhost:54237/TipoCambioService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TipoCambioServiceSoap12" binding="tns:TipoCambioServiceSoap12">
+      <soap12:address location="http://localhost:54237/TipoCambioService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

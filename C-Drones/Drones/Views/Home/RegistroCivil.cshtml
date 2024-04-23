@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/RegistroCivil.css">
+    <link rel="manifest" href="~/manifest.json" />
+    <link rel="icon" type="image/png" href="/Imagenes/favicon.png">
+    <title>Mostrar Datos</title>
+</head>
+<body>
+    <header>
+        <div class="caja">
+            <a href="#"><h1><img src="~/Logo/logo-blanco.png" width="190" height="190"></h1></a>
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Registrar", "Home")">Regresar</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h2>Mostrar Datos</h2>
+
+    <form id="formIdentificacion">
+        <label for="identificacion">Identificación:</label><br>
+        <input type="text" id="identificacion" name="identificacion"><br><br>
+        <button type="button" id="miBoton">Consultar</button>
+    </form>
+
+    <hr />
+
+    <table id="tablaDatos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Provincia</th>
+                <th>Cantón</th>
+                <th>Distrito</th>
+            </tr>
+        </thead>
+        <tbody id="datosPersona">
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("miBoton").addEventListener("click", function (event) {
+                event.preventDefault();
+
+                var identificacion = document.getElementById("identificacion").value;
+
+                fetch(`http://127.0.0.1:8000/datos/${identificacion}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(dataArray => {
+                        // Verificar si el array de datos tiene al menos un elemento
+                        if (dataArray.length > 0) {
+                            const data = dataArray[0];
+                            console.log(data);
+
+                            // Construir la fila de la tabla con los datos recibidos
+                            var datosHtml = "<tr><td>" + data.Nombre + "</td><td>" + data.Apellido + "</td><td>" + data.Telefono + "</td><td>" + data.Provincia + "</td><td>" + data.Canton + "</td><td>" + data.Distrito + "</td></tr>";
+                            document.getElementById("datosPersona").innerHTML = datosHtml;
+                        } else {
+                            document.getElementById("datosPersona").innerHTML = "<tr><td colspan='3'>No se encontraron datos para la identificación proporcionada.</td></tr>";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+            });
+        });
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
