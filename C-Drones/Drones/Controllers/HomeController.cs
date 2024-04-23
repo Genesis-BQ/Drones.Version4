@@ -344,7 +344,7 @@ namespace Drones.Controllers
             string cuerpo = $"Querido Cliente,\n\n" + $"\n\n" + $"\n\n" + $"Muchas gracias por haber completado nuestro formulario de registro. Esperamos que disfrute explorando nuestra página y encuentre los productos que necesita. Le recordamos algunas recomendaciones y sugerencias en caso de cualquier inconveniente.\n\n" + $"\n\n" + $"\n\n" + $"\n\n" + $"Después de haber ingresado su identificación y contraseña, se le enviará un token a su correo registrado para su validación. Una vez que ingrese el token, podrá acceder a nuestra página principal. Recuerde manejar con cuidado el token, ya que solo tiene 3 intentos. Después de estos intentos, se bloqueará. Lo mismo ocurrirá si ingresa incorrectamente su contraseña. Como recomendación, le pedimos que revise con atención cómo ingresa su contraseña y su token.\n\n" + $"\n\n" + $"\n\n" + $"Atentamente,\n" + $"\n\n" +
                     $"Drones Blue and White Robotics";
 
-            using (MailMessage mensajeCorreo = new MailMessage("gbarahonaq1708@gmail.com", correoUsuario))
+            using (MailMessage mensajeCorreo = new MailMessage("correo de la personas", correoUsuario))
             {
                 mensajeCorreo.Subject = asunto;
                 mensajeCorreo.Body = cuerpo;
@@ -353,7 +353,7 @@ namespace Drones.Controllers
                 {
                     clienteSmtp.Port = 587;
                     clienteSmtp.UseDefaultCredentials = false;
-                    clienteSmtp.Credentials = new NetworkCredential("gbarahonaq1708@gmail.com", "faoo mwhe weio lsnw");
+                    clienteSmtp.Credentials = new NetworkCredential("correo de la presona", "token");
                     clienteSmtp.EnableSsl = true;
 
                     clienteSmtp.Send(mensajeCorreo);
@@ -378,12 +378,12 @@ namespace Drones.Controllers
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("gbarahonaq1708@gmail.com", "faoo mwhe weio lsnw"),
+                    Credentials = new NetworkCredential("correo de la persona", "token"),
                     EnableSsl = true,
                 };
 
 
-                MailMessage mensaje = new MailMessage("gbarahonaq1708@gmail.com", correoDestino)
+                MailMessage mensaje = new MailMessage("correo de la persona", correoDestino)
                 {
                     Subject = "Código de confirmación",
                     Body = $"Querido Usuario:\n\nTu código de confirmación es: {codigo}. Úsalo para la confirmación de token.\n\nAtentamente,\nDrones Blue and White Robotics",
@@ -875,12 +875,12 @@ namespace Drones.Controllers
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("gbarahonaq1708@gmail.com", "faoo mwhe weio lsnw"),
+                Credentials = new NetworkCredential("correo de la persona", "token"),
                 EnableSsl = true,
             };
 
 
-            MailMessage mensaje = new MailMessage("gbarahonaq1708@gmail.com", correo)
+            MailMessage mensaje = new MailMessage("correo de la persona", correo)
             {
                 Subject = "Código de recuperación de contraseña",
                 Body = $"Querido Usuario:\n\nTu código de recuperación es: {codigo}. Úsalo para restablecer tu contraseña.\n\nAtentamente,\nDrones Blue and White Robotics",
