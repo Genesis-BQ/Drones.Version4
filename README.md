@@ -23,6 +23,8 @@ HTML y CSS: Para la creación de interfaces web intuitivas y accesibles.
 
 Python, C# y JavaScript: Utilizados para el desarrollo de la lógica de negocio y la funcionalidad del sistema.
 
+Base de Datos SQL: Utilizada para almacenar y gestionar la información del sistema de manera estructurada y eficiente.
+
 Conclusión:
 Drones.Version4 representa un hito importante en el desarrollo tecnológico, combinando conocimientos avanzados en diversas áreas de la programación. La implementación de múltiples servidores en diferentes lenguajes de programación y su integración con el Banco Central de Costa Rica mediante una API lo convierten en un sistema altamente eficiente y confiable.
 
