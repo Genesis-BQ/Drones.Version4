@@ -29,9 +29,15 @@ Drones.Version4 representa un hito importante en el desarrollo tecnológico, com
 Este proyecto es el resultado de una planificación estratégica y una ejecución técnica de alto nivel, reflejando un logro significativo en la integración de tecnologías para el desarrollo de soluciones innovadoras.
 
 Versiones del proyecto:
+
   Computadora:
-    ![image](https://github.com/user-attachments/assets/eca4fd5d-c6e4-4528-a6b7-3776f1b4ab18)
+  
+   ![image](https://github.com/user-attachments/assets/eca4fd5d-c6e4-4528-a6b7-3776f1b4ab18)
+    
   Tablet:
-    ![tablet](https://github.com/user-attachments/assets/f576e504-b92d-4ba5-8b1c-96317d44d14a)
+  
+  ![tablet](https://github.com/user-attachments/assets/f576e504-b92d-4ba5-8b1c-96317d44d14a)
+    
   Movil:
+  
   ![movil](https://github.com/user-attachments/assets/59d8eedd-e6c8-4b82-9f6e-5c6ed931c123)
